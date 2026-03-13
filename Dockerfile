@@ -2,7 +2,7 @@
 FROM php:8.2-apache
 
 # Copia os arquivos da sua aplicação para o diretório padrão do apache
-COPY . /var/www/html/
+COPY . /var/ww/html/
 
 # habilita módulos adicionais do apache (opcional)
 RUN dockter-php-ext-install mysqli pdo pdo_mysql
