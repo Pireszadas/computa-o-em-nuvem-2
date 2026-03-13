@@ -1,23 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header> <h1>Lista de vetores</h1></header>
+<nav> </nav>
+<main>
+<table>
+
+<form action="index.php" method="post">
+<tr>
+<td> listar nomes de :</td>
+<td> <input type="number" name="de"></td>
+<td>até:</td>
+<td> <input type="number" name="ate"></td>
+ </tr>
+ <tr>
+<td> </td>
+<td> <input type="reset" value="Apagar"></td>
+<td></td>
+<td><input type="submit" value="Listar"></td>
+ </tr>
+
+
+</form>
+</table>
 <?php
 
-// Função para converter uma string para binário
-function stringParaBinario($string){
-    // A função str_split divide a string em um array de caracteres
-    // A função ord pega o valor ASCII de cada caractere
-    // A função decbin converte o valor ASCII em binário
-    $binario = '';
-    foreach(str_split($string) as $char){
-        // Converte o caractere para o valor binário de 8 bits
-        $binario .= str_pad(decbin(ord($char)), 8, '0', STR_PAD_LEFT).'';
+ $nomes = array("André","Bruno","carlos","daniel","elias","fabio","geraldo","helio","igor","joao");
+ if(isset($_POST["de"])){
+     $de = $_POST["de"];
+ }
+ else{
+     $de = null;
+ }
+
+ if(isset($_POST["ate"])){
+    $ate = $_POST["ate"];
+}
+else{
+    $ate= null;
+}
+if($de !=null and $ate !=null){
+    $x = $de;
+    while($x <= $ate){
+        echo"<p>$nomes[$x]</p>";
+        $x++;
+        
     }
-    return $binario;
 }
 
-// Exemplo de uso
-$frase = "Olá mundo!";
-$fraseBinario = stringParaBinario($frase);
 
-// Exibindo a frase original e sua versão binária
-echo "Frase original: " . $frase . "<br>";
-echo "Frase em binário: " . $fraseBinario;
+
 ?>
+
+</main>
+
+
+<footer>@copy- Gabriel Pires</footer>
+    
+</body>
+</html>
